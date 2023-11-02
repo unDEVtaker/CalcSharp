@@ -16,9 +16,9 @@ namespace CalcSharp.OperadoresAritmeticos
         {
             InitializeComponent();
         }
-        int numero1;
-        int numero2;
-        int resultado;
+        double numero1;
+        double numero2;
+        double resultado;
 
         private void frmOpAritmeticos_Load(object sender, EventArgs e)
         {
@@ -32,10 +32,60 @@ namespace CalcSharp.OperadoresAritmeticos
 
         private void Suma()
         {
-            numero1 = Convert.ToInt32(txtNum1.Text);
-            numero2 = Convert.ToInt32(txtNum2.Text);
-            resultado = numero1 + numero2;
+            try
+            {
+                numero1 = Convert.ToDouble(txtNum1.Text);
+                numero2 = Convert.ToDouble(txtNum2.Text);
+                resultado = numero1 + numero2;
+                txtResultado.Text = resultado.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+  
+        }
+
+        private void btnResta_Click(object sender, EventArgs e)
+        {
+            Resta();
+        }
+        
+        private void Resta()
+        {
+            numero1 = Convert.ToDouble(txtNum1.Text);
+            numero2 = Convert.ToDouble(txtNum2.Text);
+            resultado = numero1 - numero2;
             txtResultado.Text = resultado.ToString();
+        }
+
+        private void btnMultiplicar_Click(object sender, EventArgs e)
+        {
+            Multiplicar();
+        }
+        private void Multiplicar()
+        {
+            numero1 = Convert.ToDouble(txtNum1.Text);
+            numero2 = Convert.ToDouble(txtNum2.Text);
+            resultado = numero1 * numero2;
+            txtResultado.Text = resultado.ToString();
+        }
+
+        private void btnDividir_Click(object sender, EventArgs e)
+        {
+            Dividir();
+        }
+        private void Dividir()
+        {
+            numero1 = Convert.ToDouble(txtNum1.Text);
+            numero2 = Convert.ToDouble(txtNum2.Text);
+            resultado = numero1 / numero2;
+            txtResultado.Text = resultado.ToString();
+        }
+
+        private void txtNum1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
